@@ -15,7 +15,7 @@
   <![CDATA[ 
   
   <!-- shindig oauth popup handling code -->
-  <script src="http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/popup.js"></script>
+  <script src="https://raw.githubusercontent.com/LiubovAst/TestGadget/master/popup.js"></script>
  
   <style>
   #main {
