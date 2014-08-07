@@ -31,9 +31,13 @@
       prefs.set("counter", 0);
       div.innerHTML = "Count reset to " + prefs.getInt("counter") + ".";
     }
+    
+    function showDate() {
+      google.calendar.showDate(2015, 4, 10);
+    }
 
     </script>
-    <input type=button value="Count" name="count" onClick="incrementCounter()">
+    <input type=button value="Count" name="count" onClick="showDate()">
     <input type=button value="Reset" name="reset" onClick="resetCounter()">
   ]]> 
   </Content>
