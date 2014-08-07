@@ -34,7 +34,7 @@
     }
     
     function showDate() {
-      google.calendar.showDate(2015, 4, 10);
+      google.calendar.showDate(2015, 4, 10); 
     }
 
     </script>
