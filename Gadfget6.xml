@@ -5,7 +5,13 @@
   </ModulePrefs>
   <Content type="html">
   <![CDATA[ 
-
+    <style type="text/css"> 
+      .tablib_selected { color: #FF0000; }
+      .tablib_unselected { color: #660099; }
+      .tablib_table { font-size:20px; }
+      .tablib_emptyTab { padding:2px 5px; }
+      .tablib_spacerTab { padding:0px 5px; }
+    </style>
     <script type="text/javascript">
     // Initialize tabs, designate the tab named "Two" as
     // the tab selected by default.
