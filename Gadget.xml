@@ -1,36 +1,53 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Module>
-  <ModulePrefs 
-    title="Our Grocery List" 
-    scrolling="true"> 
-    <optional feature="shareable-prefs"/> 
-   </ModulePrefs>
-  <UserPref name="mylist" 
-    display_name="Add items" 
-    datatype="list" />
-  <Content type="html">
-  <![CDATA[ 
-    <div id="content_div" style='color: #CC0099; font-family: serif; font-size: 120%;'></div>
+<?xml version="1.0" encoding="UTF-8" ?> 
 
-  <script type="text/javascript"> 
-    // Get userprefs
-    var prefs = new gadgets.Prefs();
-    // Get the list
-    var items = prefs.getArray("mylist");  
-    var html = "";
-    // If there are no items in the list yet, display message.
-    if (items.length == 0)
-    {
-      html += "Edit the userprefs to add items to the list.";
-    }
-    else {
-      for (var i = 0; i < items.length ; i++) {
-        var term = (items[i]);
-        html += term + "<br />";
-      }
-    }
-    document.getElementById("content_div").innerHTML = html; 
-  </script>
-  ]]> 
+<Module>
+  <ModulePrefs title="Magic Decoder"/> 
+  <Content type="html">
+  <![CDATA[
+     <script type="text/javascript">
+
+       // The gadget version of ROT13.
+       // Encodes/decodes text strings by replacing each letter with the letter
+       // 13 positions to the right in the alphabet. 
+       function decodeMessage (form) {
+          var alpha = "abcdefghijklmnopqrstuvwxyz";
+          var input = form.inputbox.value; 
+          var aChar;
+          var message = "";
+          for (var i = 0; i <input.length; i++)
+          { 
+             aChar = input.charAt(i);
+             var index = alpha.indexOf(aChar.toLowerCase());
+
+             // if a non-alphabetic character, just append to string
+             if (index==-1)
+             {
+                message += aChar;
+             }
+
+             // if you have to wrap around the end of the alphabet
+             else if(index > 12) { // compensate for 0-based index
+                index = 25 - index; // last item in array is at [25]
+                index = 12 - index; // because array starts with 0
+                aChar = alpha.charAt(index);
+                message += aChar;
+             }
+
+             // if you don't have to wrap
+             else {
+                aChar = alpha.charAt(index+13);
+                message += aChar;
+             }
+          }
+          document.getElementById('content_div').innerHTML = "<b>Your message: </b>" + message; 
+     }
+     </script>
+
+     <FORM NAME="myform" ACTION="" METHOD="GET">Message: <BR>
+       <INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
+       <INPUT TYPE="button" NAME="button" Value="Transform" onClick="decodeMessage(this.form)">
+     </FORM>
+     <div id="content_div"></div>
+  ]]>
   </Content>
 </Module>
