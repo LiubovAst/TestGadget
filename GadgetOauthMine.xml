@@ -2,7 +2,7 @@
 <Module>
   <ModulePrefs title="OpenSocialGadget OAuth2 sample">
     <OAuth2>
-      <Service name="[service_name]">
+      <Service name="Google">
 	  	<Authorization url="https://.../authorize"/>
 	    <Token url="https://.../oauth2/token"/>
       </Service>
