@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Fetch Text Example"/>
+  <Content type="html">
+  <![CDATA[
+  <div id="content_div"></div>
+  <script type="text/javascript">
+
+  // This example fetches data from a CSV file containing contact information. In the CSV file, 
+  // each record consists of a name, email address, and phone number.
+  function getContacts() {
+    var params = {};  
+    params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;  
+    var url = "http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/Contacts.csv";
+    gadgets.io.makeRequest(url, response, params);
+  };
+  // Callback function to process the response
+  function response(obj) {               
+    var responseText = obj.text;  
+    // Set CSS for div.
+    var html = "<div style='padding: 5px;background-color: #FFFFBF;font-family:Arial, Helvetica;" 
+    + "text-align:left;font-size:90%'>"; 
+
+    // Use the split function to extract substrings separated by comma 
+    // delimiters.
+    var contacts = responseText.split(",");
+    // Process array of extracted substrings.
+    for (var i = 0; i < contacts.length ; i++) {
+      // Append substrings to html.
+      html += contacts[i]; 
+      html += " ";
+
+      // Each record consists of 3 components: name, email, and
+      // phone number. The gadget displays each record on a single
+      // line:
+      //
+      // Mickey Mouse mickey@disneyland.com 1-800-MYMOUSE
+      //
+      // Therefore, insert a line break after each (name,email,phone)
+      // triplet (i.e., whenever (i+1) is a multiple of 3).
+      if((i+1)%3 ==0) { 
+        html += "<br>";
+      }
+    }
+    html += "</div>";
+    // Output html in div.
+    document.getElementById('content_div').innerHTML = html;
+  }
+  gadgets.util.registerOnLoadHandler(getContacts);
+
+ </script>
+  ]]>
+  </Content>
+</Module>
