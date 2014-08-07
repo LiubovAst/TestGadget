@@ -14,9 +14,6 @@
   <Content type="html">
   <![CDATA[ 
  
-  <!-- shindig oauth popup handling code -->
-  <script src="http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/popup.js"></script>
-
   <style>
   #main {
     margin: 0px;
