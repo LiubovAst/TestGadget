@@ -4,6 +4,7 @@
     title="Setprefs New">
     <Require feature="opensocial-0.8"/>
     <Require feature="setprefs" /> 
+    <Require feature="google.calendar-0.5"/>
     </ModulePrefs>
   <UserPref 
     name="counter" 
