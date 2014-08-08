@@ -46,7 +46,9 @@
 				params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
  
 				var callback = function (response) {
+				alert('1');
 				if (response.oauthApprovalUrl) {
+				        alert('2');
 					var onOpen = function() {
 						showOneSection('waiting');
 					};
@@ -60,10 +62,12 @@
 					} else if (response.data) {
 						showOneSection('main');
 						// TODO:display contents
+						alert('3');
 					}
 				};
 				
 				gadgets.io.makeRequest(url, callback, params);
+				alert('0');
 			}
  
 			gadgets.util.registerOnLoadHandler(loadContents);
