@@ -46,7 +46,7 @@
 				params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
  
 				var callback = function (response) {
-				alert('$$' + JSON.stringify(response));
+				alert('%%' + JSON.stringify(response));
 				if (response.oauthApprovalUrl) {
 				        alert('2');
 					var onOpen = function() {
