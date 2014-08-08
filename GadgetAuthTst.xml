@@ -171,7 +171,7 @@ shindig.oauth.popup = function(options) {
         list = result.feed.entry;
         for(var i = 0; i < list.length; i++) {
           entry = list[i];
-          var title = entry.title.$t;
+          var title = entry.summary.$t;
           // get the URL to link to the video
           for (var linki = 0; linki < entry['link'].length; linki++) {
             if (entry['link'][linki]['type'] == 'text/html' &&
