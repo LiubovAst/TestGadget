@@ -3,7 +3,6 @@
   <ModulePrefs title="OpenSocialGadget OAuth2 sample">
     <OAuth2>
       <Service name="google">
-         <Authorization url="https://accounts.google.com/o/oauth2/auth"/>
       </Service>
     </OAuth2>
     <Require feature="oauthpopup" />
