@@ -2,7 +2,8 @@
 <Module>
   <ModulePrefs title="OpenSocialGadget OAuth2 sample">
     <OAuth2>
-      <Service name="google" scope="https://www.googleapis.com/auth/tasks">
+      <Service name="google">
+         <Authorization url="https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/tasks&redirect_uri=https://ikdagmjjppfokpdndeanigmajnnmindd.chromiumapp.org/oauth2callback&response_type=token&client_id=492637198173-9isjidn1cm3cmt92n5rkmp8kfll8dgk4.apps.googleusercontent.com"/>
       </Service>
     </OAuth2>
     <Require feature="oauthpopup" />
