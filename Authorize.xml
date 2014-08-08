@@ -3,7 +3,7 @@
   <ModulePrefs title="OpenSocialGadget OAuth2 sample">
     <OAuth2>
       <Service name="google">
-	  	<Authorization url="https://accounts.google.com/o/oauth2/auth?redirect_uri=https://ikdagmjjppfokpdndeanigmajnnmindd.chromiumapp.org/oauth2callback&response_type=token&client_id=492637198173-9isjidn1cm3cmt92n5rkmp8kfll8dgk4.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ftasks+https://www.googleapis.com/auth/userinfo.profile"/>
+	  	<Authorization url="https://accounts.google.com/o/oauth2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ftasks"/>
       </Service>
     </OAuth2>
     <Require feature="oauthpopup" />
