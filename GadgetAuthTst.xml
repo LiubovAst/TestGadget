@@ -6,7 +6,7 @@
       <OAuth>
       <Service name="google">
         <Access url="https://www.google.com/accounts/OAuthGetAccessToken" method="GET" /> 
-            <Request url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.googleapis.com/auth/tasks" method="GET" /> 
+            <Request url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.google.com/calendar/feeds/" method="GET" /> 
         <Authorization url="https://www.google.com/accounts/OAuthAuthorizeToken?oauth_callback=http://oauth.gmodules.com/gadgets/oauthcallback" /> 
       </Service>
     </OAuth>
@@ -209,7 +209,7 @@ shindig.oauth.popup = function(options) {
     // gadget as a link that the user clicks to begin the approval process.     
     function fetchData() {
       var params = {};
-      url = "https://www.googleapis.com/tasks/v1/users/@me/lists?alt=json";
+      url = "https://www.google.com/calendar/feeds/default/owncalendars/full?alt=json";
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
       params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
       params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
