@@ -168,7 +168,10 @@ shindig.oauth.popup = function(options) {
         
          for(var i = 0; i < list.length; i++) {
           entry = list[i].title.$t;
-          document.getElementById("main").appendChild(entry);
+           var someElement = document.createElement('div');
+           var calNode = document.createTextNode(entry);
+          someElement.appendChild(calNode);
+          document.getElementById("main").appendChild(someElement);
         }
 
         // Create a list that displays links for the user's uploaded videos
