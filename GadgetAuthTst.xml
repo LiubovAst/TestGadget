@@ -164,9 +164,15 @@ shindig.oauth.popup = function(options) {
         titleElement.appendChild(nameNode);
         document.getElementById("main").appendChild(titleElement);
         document.getElementById("main").appendChild(document.createElement("br"));
+        list = result.feed.entry;
+        
+         for(var i = 0; i < list.length; i++) {
+          entry = list[i];
+          document.getElementById("main").appendChild(JSON.stringify(entry));
+        }
 
         // Create a list that displays links for the user's uploaded videos
-        var videos = document.getElementById("main");
+   /*     var videos = document.getElementById("main");
         var ul = document.createElement('ul');
         list = result.feed.entry;
         for(var i = 0; i < list.length; i++) {
@@ -189,7 +195,7 @@ shindig.oauth.popup = function(options) {
           }
           ul.appendChild(li);
         } 
-        videos.appendChild(ul);
+        videos.appendChild(ul);*/
       }
     // Invoke makeRequest() to fetch data from the service provider endpoint.
     // Depending on the results of makeRequest, decide which version of the UI
