@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="Tree List Demo" height="140" scrolling="true" > 
+
+  </ModulePrefs>
+  <Content type="html">
+  <![CDATA[ 
+    <style type="text/css"> 
+     
+    </style>
+    <script type="text/javascript">
+    // Initialize tabs, designate the tab named "Two" as
+    // the tab selected by default.
+    
+    var data = [
+    {'id': 1, 'parentId': 0, 'name': 'Maths'},
+    {'id': 2, 'parentId': 1, 'name': 'Topologie'},
+    {'id': 3, 'parentId': 1, 'name': 'Algèbre'},
+    {'id': 4, 'parentId': 3, 'name': 'Algèbre linéaire'},
+    {'id': 5, 'parentId': 3, 'name': 'Arithmétique'},
+    {'id': 6, 'parentId': 5, 'name': 'Thérorème de Bézout'},
+    {'id': 7, 'parentId': 0, 'name': 'Informatique'},
+    {'id': 8, 'parentId': 7, 'name': 'C-C++'},
+    {'id': 9, 'parentId': 8, 'name': 'Les pointeurs'}
+    ];
+
+    function init() {
+        // Technique #1: Capture the tab's ID when you create it, and use the ID 
+          generateList(data);
+          //CollapsibleLists.applyTo(document.getElementById('listId'));
+    }
+    
+    function generateList(data) {
+    var i, item, ref = {}, counts = {};
+
+
+    counts[0] = 1;
+    for (i = 0; i < data.length; ++i) {
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(data[i]['name']));
+        //li(data[i]['name']);
+        ref[data[i].parentId].appendChild(li); // create <li>
+        ref[data[i].id] = document.createElement('ul'); // assume + create <ul>
+       // ref[data[i].parentId].appendChild(ref[data[i].id]);
+        li.appendChild(ref[data[i].id]);
+        counts[data[i].id] = 0;
+        counts[data[i].parentId] += 1;
+    }
+    for (i in counts) // for every <ul>
+        if (counts[i] === 0) // if it never had anything appened to it
+            ref[i].parentNode.removeChild(ref[i]); // remove it
+    return ref[0];
+}
+
+
+
+
+    // Call init function to initialize and display tabs.
+    gadgets.util.registerOnLoadHandler(init);
+    </script>
+
+    <ul id="listId" class="collapsibleList"></ul>
+  ]]>
+  </Content>
+</Module>
