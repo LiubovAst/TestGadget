@@ -33,7 +33,7 @@
     function generateList(data) {
     var i, item, ref = {}, counts = {};
 
-
+    ref[0] = document.getElementById('listId');
     counts[0] = 1;
     for (i = 0; i < data.length; ++i) {
         var li = document.createElement('li');
