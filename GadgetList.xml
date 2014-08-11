@@ -8,7 +8,6 @@
     <style type="text/css"> 
      
     </style>
-    <script type="text/javascript" src="https://raw.githubusercontent.com/LiubovAst/TestGadget/master/CollapsibleLists.js"></script>
     <script type="text/javascript">
     // Initialize tabs, designate the tab named "Two" as
     // the tab selected by default.
