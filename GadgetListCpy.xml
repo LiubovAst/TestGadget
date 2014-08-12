@@ -21,7 +21,7 @@
           cursor:pointer;
           }
     </style>
-    <script type="text/javascript" src="CollapsibleLists.js"></script>
+    <script type="text/javascript" src="https://rawgithubusercontent.com/LiubovAst/TestGadget/master/CollapsibleLists.js"></script>
     <script type="text/javascript">
     // Initialize tabs, designate the tab named "Two" as
     // the tab selected by default.
