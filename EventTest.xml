@@ -76,12 +76,14 @@
         
          for(var i = 0; i < list.length; i++) {
           entry = list[i].title.$t;
+		  var calId = list[i].id.$t;
 		  alert(entry);
 		  alert(JSON.stringify(list[i]));
-		  data.push({'id': 2 * i + 1, 'parentId': 0, 'name': entry});
-		  
 		  alert(list[i].id.$t);
-		  data.push({'id': 2 * i + 2, 'parentId': 2*i + 1, 'name': list[i].id.$t});
+		  var id = 2 * i + 2;
+		  var parentId =  2*i + 1;
+		  data.push({'id': parentId, 'parentId': 0, 'name': entry});		  
+		  data.push({'id': id, 'parentId': parentId, 'name': calId});
      /*      var someElement = document.createElement('div');
            var calNode = document.createTextNode(entry);
           someElement.appendChild(calNode);
