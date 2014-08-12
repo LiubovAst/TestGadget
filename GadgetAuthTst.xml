@@ -77,7 +77,7 @@
     // gadget as a link that the user clicks to begin the approval process.     
     function fetchData() {
       alert('1');
-      var params = {};
+ /*     var params = {};
       url = "https://www.google.com/calendar/feeds/default/owncalendars/full?alt=json";
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
       params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
@@ -118,7 +118,7 @@
             main.appendChild(err);
             showOneSection('main');
         }
-      }, params);
+      }, params);*/
     }
     // Call fetchData() when gadget loads.
     gadgets.util.registerOnLoadHandler(fetchData);
