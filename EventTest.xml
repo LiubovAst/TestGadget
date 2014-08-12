@@ -79,7 +79,10 @@
          for(var i = 0; i < list.length; i++) {
           entry = list[i].title.$t;
 		  var calId = list[i].id.$t;
-		  alert(list[i].author.email.$t);
+		
+		  alert(JSON.stringify(list[i]));
+		  alert(JSON.stringify(list[i].author));
+		    alert(list[i].author.email.$t);
 		  var id = 2 * i + 2;
 		  var parentId =  2*i + 1;
 		  data.push({'id': parentId, 'parentId': 0, 'name': entry});		  
