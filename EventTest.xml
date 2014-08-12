@@ -78,10 +78,10 @@
           entry = list[i].title.$t;
 		  alert(entry);
 		  alert(JSON.stringify(list[i]));
-		  data.add({'id': 2 * i + 1, 'parentId': 0, 'name': entry});
+		  data.push({'id': 2 * i + 1, 'parentId': 0, 'name': entry});
 		  
 		  alert(list[i].id.$t);
-		  data.add({'id': 2 * i + 2, 'parentId': 2*i + 1, 'name': list[i].id.$t});
+		  data.push({'id': 2 * i + 2, 'parentId': 2*i + 1, 'name': list[i].id.$t});
      /*      var someElement = document.createElement('div');
            var calNode = document.createTextNode(entry);
           someElement.appendChild(calNode);
