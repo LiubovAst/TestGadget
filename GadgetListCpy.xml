@@ -7,17 +7,17 @@
   <![CDATA[ 
     <style type="text/css"> 
         .collapsibleList li{
-          list-style-image:url('button-check.png');
+          list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-check.png');
           cursor:auto;
           }
 
         li.collapsibleListOpen{
-          list-style-image:url('button-minus.png');
+          list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-minus.png');
           cursor:pointer;
           }
 
         li.collapsibleListClosed{
-          list-style-image:url('button-plus.png');
+          list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-plus.png');
           cursor:pointer;
           }
     </style>
