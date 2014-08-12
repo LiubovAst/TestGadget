@@ -41,6 +41,7 @@
   <script type="text/javascript">
   
     var data = [];
+	var userMail = null;
   
    // Display UI depending on OAuth access state of the gadget (see <divs> above).
     // If user hasn't approved access to data, provide a "Personalize this gadget" link
@@ -73,6 +74,7 @@
     function showResults(result) {
         showOneSection('main');
 		data = [];
+		userMail = null;
 
         list = result.feed.entry;
         
@@ -81,7 +83,8 @@
 		  var calId = list[i].id.$t;
 		
 		 if (list[i].author[0].email != null) {
-		    alert(list[i].author[0].email.$t);
+		    userMail = list[i].author[0].email.$t;
+			alert(userMail);
 		 }
 		    
 		  var id = 2 * i + 2;
@@ -94,9 +97,35 @@
           document.getElementById("main").appendChild(someElement);*/
         }
 		
+		if (userMail != null) {
+		  askForEvents(userMail);
+		}
+		
 		generateList(data);
 		CollapsibleLists.applyTo(document.getElementById('listId'));
       }
+	  
+	 function askForEvents(email) {
+		url = "https://www.google.com/calendar/feeds/" + email + "/private/full?alt=json";
+		params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+		params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
+		params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
+		params[gadgets.io.RequestParameters.OAUTH_USE_TOKEN] = "always";
+		params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+		
+		gadgets.io.makeRequest(url, function (response) {   
+			if (response.data) {
+				alert(JSON.stringify(response.data));
+
+			} else {
+				// The response.oauthError and response.oauthErrorText values may help debug
+				// problems with your gadget.
+				var err = document.createTextNode('OAuth error: ' +
+				response.oauthError + ': ' + response.oauthErrorText);
+				alert(err);
+			}
+		}, params);
+	 }	 
       
     // Invoke makeRequest() to fetch data from the service provider endpoint.
     // Depending on the results of makeRequest, decide which version of the UI
