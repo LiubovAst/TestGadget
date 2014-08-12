@@ -70,18 +70,17 @@
     // Process returned JSON feed to display data.
     function showResults(result) {
         showOneSection('main');
-		data.clear();
-    /*    var titleElement = document.createElement('div');
-        var nameNode = document.createTextNode(result.feed.title.$t);
-        titleElement.appendChild(nameNode);
-        document.getElementById("main").appendChild(titleElement);
-        document.getElementById("main").appendChild(document.createElement("br"));*/
+		data = [];
+
         list = result.feed.entry;
         
          for(var i = 0; i < list.length; i++) {
           entry = list[i].title.$t;
+		  alert(entry);
 		  data.add({'id': 2 * i + 1, 'parentId': 0, 'name': entry});
-		  data.add({'id': 2 * i + 2, 'parentId': 2*i + 1, 'name': list[i].id});
+		  alert(JSON.stringify(list[i]));
+		  alert(list[i].id.$t);
+		  data.add({'id': 2 * i + 2, 'parentId': 2*i + 1, 'name': list[i].id.$t});
      /*      var someElement = document.createElement('div');
            var calNode = document.createTextNode(entry);
           someElement.appendChild(calNode);
