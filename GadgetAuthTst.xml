@@ -89,6 +89,7 @@
     // URL that includes a Google-supplied request token. This is presented in the 
     // gadget as a link that the user clicks to begin the approval process.     
     function fetchData() {
+      alert('1');
       var params = {};
       url = "https://www.google.com/calendar/feeds/default/owncalendars/full?alt=json";
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
