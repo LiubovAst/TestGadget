@@ -90,6 +90,7 @@
 
       gadgets.io.makeRequest(url, function (response) { 
         if (response.oauthApprovalUrl) {
+		  alert('1a');
           // Create the popup handler. The onOpen function is called when the user
           // opens the popup window. The onClose function is called when the popup
           // window is closed.
@@ -110,11 +111,13 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
+		    alert('1b');
             showOneSection('main');
             showResults(response.data);
         } else {
             // The response.oauthError and response.oauthErrorText values may help debug
             // problems with your gadget.
+			alert('1c');
             var main = document.getElementById('main');
             var err = document.createTextNode('OAuth error: ' +
               response.oauthError + ': ' + response.oauthErrorText);
