@@ -22,7 +22,7 @@
     font-size: small;
   }
   </style>
-
+  <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/popup.js">
   <script type="text/javascript">
        
     function fetchData() {
