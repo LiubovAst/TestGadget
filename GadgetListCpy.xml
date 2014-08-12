@@ -6,7 +6,20 @@
   <Content type="html">
   <![CDATA[ 
     <style type="text/css"> 
-     
+        .collapsibleList li{
+          list-style-image:url('button-check.png');
+          cursor:auto;
+          }
+
+        li.collapsibleListOpen{
+          list-style-image:url('button-minus.png');
+          cursor:pointer;
+          }
+
+        li.collapsibleListClosed{
+          list-style-image:url('button-plus.png');
+          cursor:pointer;
+          }
     </style>
     <script type="text/javascript">
     // Initialize tabs, designate the tab named "Two" as
