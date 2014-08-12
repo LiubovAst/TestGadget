@@ -36,6 +36,7 @@
     once you've approved access to your data.
   </div>
 
+  <script type="text/javascript" src="<script type="">
   <script type="text/javascript">
     // Display UI depending on OAuth access state of the gadget (see <divs> above).
     // If user hasn't approved access to data, provide a "Personalize this gadget" link
