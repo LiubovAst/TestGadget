@@ -107,7 +107,7 @@
 	  
 	 function askForEvents(email) {
 	    var params = {};
-		url = "https://www.google.com/calendar/feeds/" + email + "/public/full?alt=json";
+		url = "https://www.google.com/calendar/feeds/default/public/full?alt=json";
 		params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 		params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
 		params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
