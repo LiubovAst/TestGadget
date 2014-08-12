@@ -115,6 +115,7 @@
 		params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
 		
 		gadgets.io.makeRequest(url, function (response) {   
+		    alert(JSON.stringify(response));
 			if (response.data) {
 				alert(JSON.stringify(response.data));
 
