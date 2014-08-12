@@ -107,7 +107,7 @@
 	  
 	 function askForEvents(email) {
 	    var params = {};
-		url = "https://www.google.com/calendar/feeds/default/private/full?start-min=$currentDate&start-max=$futureDate&alt=json";
+		url = "https://www.google.com/calendar/feeds/default/private/full?start-min=2014-08-12&start-max=2014-08-13&alt=json";
 		params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 		params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
 		params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
