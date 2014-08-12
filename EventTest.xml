@@ -16,14 +16,31 @@
   
 
   <style>
-  #main {
-    margin: 0px;
-    padding: 0px;
-    font-size: small;
-  }
+		#main {
+			margin: 0px;
+			padding: 0px;
+			font-size: small;
+		}
+		.collapsibleList li{
+          list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-check.png');
+          cursor:auto;
+          }
+
+        li.collapsibleListOpen{
+          list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-minus.png');
+          cursor:pointer;
+          }
+
+        li.collapsibleListClosed{
+          list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-plus.png');
+          cursor:pointer;
+          }
   </style>
+  <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/CollapsibleLists.js"></script>
   <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/popup.js"></script>
   <script type="text/javascript">
+  
+    var data = [];
   
    // Display UI depending on OAuth access state of the gadget (see <divs> above).
     // If user hasn't approved access to data, provide a "Personalize this gadget" link
@@ -53,20 +70,26 @@
     // Process returned JSON feed to display data.
     function showResults(result) {
         showOneSection('main');
-        var titleElement = document.createElement('div');
+		data.clear();
+    /*    var titleElement = document.createElement('div');
         var nameNode = document.createTextNode(result.feed.title.$t);
         titleElement.appendChild(nameNode);
         document.getElementById("main").appendChild(titleElement);
-        document.getElementById("main").appendChild(document.createElement("br"));
+        document.getElementById("main").appendChild(document.createElement("br"));*/
         list = result.feed.entry;
         
          for(var i = 0; i < list.length; i++) {
           entry = list[i].title.$t;
-           var someElement = document.createElement('div');
+		  data.add({'id': 2 * i + 1, 'parentId': 0, 'name': entry});
+		  data.add({'id': 2 * i + 2, 'parentId': 2*i + 1, 'name': list[i].id});
+     /*      var someElement = document.createElement('div');
            var calNode = document.createTextNode(entry);
           someElement.appendChild(calNode);
-          document.getElementById("main").appendChild(someElement);
+          document.getElementById("main").appendChild(someElement);*/
         }
+		
+		generateList(data);
+		CollapsibleLists.applyTo(document.getElementById('listId'));
       }
       
     // Invoke makeRequest() to fetch data from the service provider endpoint.
@@ -126,12 +149,33 @@
         }
       }, params);
     }
+	
+	function generateList(data) {
+		var i, item, ref = {}, counts = {};
+
+		ref[0] = document.getElementById('listId');
+		counts[0] = 1;
+		for (i = 0; i < data.length; ++i) {
+			var li = document.createElement('li');
+			li.appendChild(document.createTextNode(data[i]['name']));
+			ref[data[i].parentId].appendChild(li); // create <li>
+			ref[data[i].id] = document.createElement('ul'); // assume + create <ul>
+			li.appendChild(ref[data[i].id]);
+			counts[data[i].id] = 0;
+			counts[data[i].parentId] += 1;
+		}
+		for (i in counts) // for every <ul>
+			if (counts[i] === 0) // if it never had anything appened to it
+				ref[i].parentNode.removeChild(ref[i]); // remove it
+		return ref[0];
+	}
     
     // Call fetchData() when gadget loads.
     gadgets.util.registerOnLoadHandler(fetchData);
   </script>
   
   <div id="main" style="display: none">
+	<ul id="listId" class="collapsibleList"></ul>
   </div>
 
   <div id="approval" style="display: none">
