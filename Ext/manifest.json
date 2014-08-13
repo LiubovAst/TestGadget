@@ -1,0 +1,29 @@
+{
+    "name": "AppiensTaskViewer",
+    "version": "1.1",
+    "manifest_version": 2,
+    "minimum_chrome_version": "29",
+    "oauth2": {
+        "client_id": "783125393148-8m75eu210f6orrhk4n3gcum4l2jbdfuc.apps.googleusercontent.com", /* client id here is for generating CRX*/
+        "scopes": [
+            "https://www.googleapis.com/auth/tasks"
+        ]
+    },
+    "icons": {
+        "48": "images/daybyday48.png",
+        "128": "images/daybyday128.png"
+    },
+    "background": {
+        "page": "views/background.html"
+    },
+
+    "description": "Test viewing tasks extention",
+    "short_name": "Test ext",
+
+    "permissions": [
+        "identity", "http://*.google.com/", "https://*.google.com/", "https://accounts.google.com/*", "https://www.googleapis.com/*"
+    ],
+    "browser_action": {
+        "default_title": "Appiens tasks"
+    }
+}

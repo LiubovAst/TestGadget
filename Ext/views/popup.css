@@ -1,0 +1,29 @@
+.collapsibleList li{
+    list-style-image:url('../images/button-check.png');
+    cursor:auto;
+}
+
+li.collapsibleListOpen{
+    list-style-image:url('../images/button-minus.png');
+    cursor:pointer;
+}
+
+li.collapsibleListClosed{
+    list-style-image:url('../images/button-plus.png');
+    cursor:pointer;
+}
+
+body, html {
+    width:100%;
+    min-height: 90%;
+    overflow-y:hidden;
+}
+
+form {
+    width:320px;
+    min-height:400px;
+    font-family: Arial;
+    font-weight:normal;
+    font-style:normal;
+    font-size: 14px;
+}
