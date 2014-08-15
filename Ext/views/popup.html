@@ -10,7 +10,7 @@
 </head>
 <body>
 <form id="form">
-<div id="main" style="display: none">
+<div id="main" style="display: none;position: relative;overflow-y: auto;">
     <ul id="listId" class="collapsibleList"></ul>
 </div>
 
@@ -22,6 +22,13 @@
     Please click
     <a href="#" id="approvaldone">I've approved access</a>
     once you've approved access to your data.
+</div>
+<div id="watch" style="display: none">
+    Id: <label id="label-id"></label><br><br>
+    Name: <label id="label-name"></label><br><br>
+    Due to: <label id="label-due-to"></label><br><br>
+    Notes: <label id="label-notes"></label><br><br>
+    <a href="#" id="href-back">Back to list</a>
 </div>
 </form>
 </body>
