@@ -143,7 +143,7 @@
       
       var params = {};
       //url = "https://www.google.com/calendar/feeds/default/owncalendars/full?alt=json";
-	  url = "https://www.googleapis.com/tasks/v1/users/@me/lists?alt=json";
+	  url = "https://www.googleapis.com/tasks/v1/users/@me/lists";
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
       params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
       params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
