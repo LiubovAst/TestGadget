@@ -175,6 +175,7 @@
         } else if (response.data) {
 		    alert('1b');
             showOneSection('main');
+			alert(response.data);
             showResults(response.data);
         } else {
             // The response.oauthError and response.oauthErrorText values may help debug
