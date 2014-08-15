@@ -311,7 +311,7 @@ function Loader() {
                 throw new Error(error);
             };
 
-            url = 'https://www.googleapis.com/tasks/v1/lists/' + taskList.id + '/tasks?showCompleted=false';
+            url = 'https://www.googleapis.com/tasks/v1/lists/' + taskList.id + '/tasks?showCompleted=true';
             xhr.open('GET', url);
             parent.requestProcessor.Add(xhr, null, false);
         }
@@ -435,6 +435,68 @@ function Loader() {
                 parent.isLoadingTaskLists = false;
             }
         }
+    }
+
+    parent.changeTaskStatus = function(taskListId, taskId, isCompleted) {
+        var url;
+        var xhr = new XMLHttpRequest();
+        try
+        {
+            xhr.onreadystatechange = onChangeTask(xhr);
+            xhr.onerror = function(error)
+            {
+                LogMsg('Loader ChangeTask: error: ' + error);
+                throw new Error(error);
+            };
+
+            //url  = 'https://www.googleapis.com/tasks/v1/lists/' + listId + '/tasks';
+            url =  'https://www.googleapis.com/tasks/v1/lists/' + taskListId + '/tasks/' + taskId + '?fields=id%2Cstatus';
+            var status = isCompleted ? 'completed':'needsAction';
+
+            xhr.open('PATCH', url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            var params =  isCompleted? '{"status":"' + status + '"}' : '{"status":"' + status + '", "completed": null}';
+            parent.requestProcessor.AddAndDo(xhr, params, true);
+        }
+        catch (e)
+        {
+            LogMsg('Loader AddTask ex: ' + e);
+            throw e;
+        }
+
+    }
+
+    /* Callback function for AddTask */
+    /*xhr - request*/
+    var onChangeTask = function(xhr)
+    {
+        return function()
+        {
+            if (xhr.readyState != 4) {
+                return;
+            }
+
+            LogMsg(xhr.response);
+            var text = xhr.response;
+            var obj = JSON.parse(text);
+
+            if (xhr.status != ST_REQUEST_OK) {
+                try {
+
+                    var error = xhr.statusText + ' ' + xhr.status + '\n' + obj.error.code + ' ' + obj.error.message;
+                    chrome.runtime.sendMessage({greeting: "UpdateError", error: error});
+                    throw new Error(error);
+                }
+                catch (e) {
+                    LogMsg('ex: ' + e);
+                    throw e;
+                }
+            }
+            else {
+
+               chrome.runtime.sendMessage({greeting: "UpdateOk", id: obj.id, status: obj.status});
+            }
+        };
     }
 
 

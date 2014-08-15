@@ -105,7 +105,7 @@ var CollapsibleLists =
 
           // find the list item containing the target of the event
           var li = (e.target ? e.target : e.srcElement);
-          while (li.nodeName != 'LI') li = li.parentNode;
+          // while (li.nodeName != 'LI') li = li.parentNode;
 
           // toggle the state of the node if it was the target of the event
           if (li == node) toggle(node);

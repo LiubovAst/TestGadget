@@ -36,8 +36,8 @@
       <file leaf-file-name="popup.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/popup.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="850">
-              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="850">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -67,8 +67,8 @@
       <file leaf-file-name="CollapsibleLists.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/CollapsibleLists.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2686">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1819" max-vertical-offset="2686">
+              <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -81,25 +81,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="icon-16.gif" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/icon-16.gif">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icon-16gray.gif" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/icon-16gray.gif">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="popup.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/popup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4978308" vertical-offset="697" max-vertical-offset="4539">
-              <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.53579175" vertical-offset="5558" max-vertical-offset="6630">
+              <caret line="356" column="23" selection-start-line="356" selection-start-column="23" selection-end-line="356" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/util.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="3672">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authorization.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/authorization.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5321" max-vertical-offset="8670">
+              <caret line="313" column="107" selection-start-line="313" selection-start-column="107" selection-end-line="313" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -116,9 +122,10 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/javascript/backgroundNew.js" />
-        <option value="$PROJECT_DIR$/javascript/authorization.js" />
         <option value="$PROJECT_DIR$/views/popup.html" />
+        <option value="$PROJECT_DIR$/javascript/CollapsibleLists.js" />
         <option value="$PROJECT_DIR$/views/popup.css" />
+        <option value="$PROJECT_DIR$/javascript/authorization.js" />
         <option value="$PROJECT_DIR$/javascript/popup.js" />
       </list>
     </option>
@@ -155,6 +162,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -217,7 +225,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -227,6 +234,14 @@
     <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -237,12 +252,14 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
+    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" />
+      <option name="executablePath" />
       <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -250,16 +267,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" />
-      <option name="executablePath" />
-      <option name="filePath" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -283,7 +290,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -298,11 +305,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -325,13 +332,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/javascript/backgroundNew.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="166" max-vertical-offset="1088">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/authorization.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3315" max-vertical-offset="7616">
@@ -626,18 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/authorization.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4691" max-vertical-offset="7616">
-          <caret line="195" column="0" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/daybyday128.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/icon-16gray.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -653,14 +641,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/CollapsibleLists.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2686">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/button-empty.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -669,6 +649,19 @@
     <entry file="file://$PROJECT_DIR$/images/button-check.png">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/daybyday128.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/CollapsibleLists.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="2499">
+          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="60" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/popup.html">
@@ -682,15 +675,31 @@
     <entry file="file://$PROJECT_DIR$/views/popup.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/authorization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4705" max-vertical-offset="8670">
+          <caret line="313" column="107" selection-start-line="313" selection-start-column="107" selection-end-line="313" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3672">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4978308" vertical-offset="697" max-vertical-offset="4539">
-          <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.53579175" vertical-offset="5558" max-vertical-offset="6630">
+          <caret line="356" column="23" selection-start-line="356" selection-start-column="23" selection-end-line="356" selection-end-column="23" />
           <folding />
         </state>
       </provider>

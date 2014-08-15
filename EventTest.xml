@@ -6,7 +6,7 @@
       <OAuth>
       <Service name="google">
         <Access url="https://www.google.com/accounts/OAuthGetAccessToken" method="GET" /> 
-            <Request url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.google.com/calendar/feeds/" method="GET" /> 
+            <Request url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.googleapis.com/auth/tasks/" method="GET" /> 
         <Authorization url="https://www.google.com/accounts/OAuthAuthorizeToken?oauth_callback=http://oauth.gmodules.com/gadgets/oauthcallback" /> 
       </Service>
     </OAuth>
@@ -43,6 +43,7 @@
     var data = [];
 	var userMail = null;
   
+  // https://www.google.com/calendar/feeds/
    // Display UI depending on OAuth access state of the gadget (see <divs> above).
     // If user hasn't approved access to data, provide a "Personalize this gadget" link
     // that contains the oauthApprovalUrl returned from makeRequest.
@@ -141,7 +142,8 @@
       alert('3');
       
       var params = {};
-      url = "https://www.google.com/calendar/feeds/default/owncalendars/full?alt=json";
+      //url = "https://www.google.com/calendar/feeds/default/owncalendars/full?alt=json";
+	  url = "https://www.googleapis.com/tasks/v1/users/@me/lists?alt=json";
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
       params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
       params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";

@@ -9,7 +9,7 @@ ul {
     margin-left: 25px; /* Отступ слева */
 }
 
-span {
+.myStyle span {
     text-indent:25px;
     display:inline-block;
     cursor:pointer;
