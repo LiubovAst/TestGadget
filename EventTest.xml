@@ -3,6 +3,7 @@
   <ModulePrefs title="Appiens Tasks" scrolling="true" author_email="prevedyolko@gmail.com" height="300">
     <Require feature="opensocial-0.8" />
     <Require feature="locked-domain"/>
+    <Require feature="dynamic-height"/>
       <OAuth>
       <Service name="google">
         <Access url="https://www.google.com/accounts/OAuthGetAccessToken" method="GET" /> 
@@ -167,7 +168,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('15:14');
+            alert('15:19');
           /*  showOneSection('main');
             showResults(response.data);*/
             taskLists = [];
