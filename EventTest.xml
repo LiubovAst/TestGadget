@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Appiens Tasks" scrolling="true" author_email="prevedyolko@gmail.com" height="300">
+  <ModulePrefs title="Appiens Tasks" scrolling="true" author_email="prevedyolko@gmail.com" height="600">
     <Require feature="opensocial-0.8" />
     <Require feature="locked-domain"/>
       <OAuth>
@@ -167,7 +167,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('16:06');
+            alert('16:12');
           /*  showOneSection('main');
             showResults(response.data);*/
             taskLists = [];
