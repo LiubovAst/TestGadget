@@ -40,9 +40,8 @@
   <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/popup.js"></script>
   <script type="text/javascript">
   
-    var data = [];
-	var userMail = null;
-  
+    var taskLists = [];
+
   // https://www.google.com/calendar/feeds/
    // Display UI depending on OAuth access state of the gadget (see <divs> above).
     // If user hasn't approved access to data, provide a "Personalize this gadget" link
@@ -74,37 +73,26 @@
     // Process returned JSON feed to display data.
     function showResults(result) {
         showOneSection('main');
-		data = [];
-		userMail = null;
+        taskLists = [];
 
-        list = result.feed.entry;
-        
-         for(var i = 0; i < list.length; i++) {
-          entry = list[i].title.$t;
-		  var calId = list[i].id.$t;
-		
-		 if (list[i].author[0].email != null) {
-		    userMail = list[i].author[0].email.$t;
-			alert(userMail);
-		 }
-		    
-		  var id = 2 * i + 2;
-		  var parentId =  2*i + 1;
-		  data.push({'id': parentId, 'parentId': 0, 'name': entry});		  
-		  data.push({'id': id, 'parentId': parentId, 'name': calId});
-     /*      var someElement = document.createElement('div');
-           var calNode = document.createTextNode(entry);
-          someElement.appendChild(calNode);
-          document.getElementById("main").appendChild(someElement);*/
-        }
-		
-		if (userMail != null) {
-		  askForEvents(userMail);
-		}
-		
-		generateList(data);
-		CollapsibleLists.applyTo(document.getElementById('listId'));
+        taskLists = result.items;
+        generateList(taskLists);
       }
+      
+    function generateList(taskLists) {
+    	var i;
+
+    	var ulMain = document.getElementById('listId');
+
+    	for (i = 0; i < taskLists.length; ++i) {
+        	var li = document.createElement('li');
+        	li.appendChild(document.createTextNode(taskLists[i].title));
+	        li.taskListId = taskLists[i].id;
+        	ulMain.appendChild(li); // create <li>
+    	}
+
+    	return ulMain;
+	}
 	  
 	 function askForEvents(email) {
 	    var params = {};
@@ -152,7 +140,6 @@
 
       gadgets.io.makeRequest(url, function (response) { 
         if (response.oauthApprovalUrl) {
-		  alert('1a');
           // Create the popup handler. The onOpen function is called when the user
           // opens the popup window. The onClose function is called when the popup
           // window is closed.
@@ -173,9 +160,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-		    alert('1b');
             showOneSection('main');
-			alert(JSON.stringify(response.data));
             showResults(response.data);
         } else {
             // The response.oauthError and response.oauthErrorText values may help debug
