@@ -253,7 +253,7 @@
     gadgets.util.registerOnLoadHandler(fetchData);
   </script>
   
-  <div id="main" style="display: none">
+  <div id="main" style="display: none; height: 100px; overflow-y: scroll;">
 	<ul id="listId" class="collapsibleList"></ul>
   </div>
 
