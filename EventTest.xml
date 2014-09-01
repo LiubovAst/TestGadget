@@ -21,10 +21,6 @@
 	  padding: 0px;
           font-size: small;
 	}
-	.collapsibleList li{
-          list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-check.png');
-          cursor:auto;
-          }
 
         li.collapsibleListOpen{
           list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-minus.png');
@@ -35,6 +31,23 @@
           list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-plus.png');
           cursor:pointer;
           }
+       
+       .collapsibleList li{
+    	  list-style-image:none; /*url('../images/button-empty.png');*/
+    	  list-style-type:none;
+          cursor:auto;
+	}
+
+	ul {
+    		padding: 0; /* Убираем поля */
+    		margin-left: 25px; /* Отступ слева */
+	}
+
+	.myStyle span {
+    		text-indent:25px;
+    		display:inline-block;
+    		cursor:pointer;
+	}
   </style>
   <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/CollapsibleLists.js"></script>
   <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/popup.js"></script>
@@ -167,7 +180,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('17:27');
+            alert('18:03');
 
             taskLists = [];
             taskLists = response.data.items;
