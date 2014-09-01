@@ -137,7 +137,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('13:58');
+            alert('14:04');
           /*  showOneSection('main');
             showResults(response.data);*/
             taskLists = [];
@@ -179,6 +179,11 @@
           // сюда попадать вообще не должны
         } else if (response.data) {
            alert(taskList.id  + '\n' + JSON.stringify(response.data));
+           taskList.isLoading = false;
+           
+           if (allLoaded()) {
+              alert('Loading finished');
+           }
             
         } else {
             // The response.oauthError and response.oauthErrorText values may help debug
@@ -192,6 +197,17 @@
         }
       }, params);
    
+    }
+    
+    function allLoaded() {
+        var i;
+        for(var i=0; i< taskLists.length; i++) {
+            if (taskLists[i].isLoading) {
+                break;
+            }
+        }
+
+        return i == taskLists.length;
     }
 	
 
