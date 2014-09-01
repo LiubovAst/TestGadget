@@ -137,7 +137,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('13:32');
+            alert('13:46');
           /*  showOneSection('main');
             showResults(response.data);*/
             taskLists = [];
@@ -167,7 +167,7 @@
         }
     
         var params = {};
-	url = "https://www.googleapis.com/tasks/v1/lists/" + taskList.id + "/tasks?key=AIzaSyD60UyJs1CDmGQvog5uBQX1-kARqhU7fkk";
+	url = "https://www.googleapis.com/tasks/v1/lists/" + taskList.id + "/tasks?key=AIzaSyD60UyJs1CDmGQvog5uBQX1-kARqhU7fkk&showCompleted=true";
         params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
         params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
         params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
