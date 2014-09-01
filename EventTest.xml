@@ -160,6 +160,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
+            alert('12:59');
             showOneSection('main');
             showResults(response.data);
         } else {
