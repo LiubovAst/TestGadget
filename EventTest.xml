@@ -137,7 +137,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('13:09');
+            alert('13:28');
           /*  showOneSection('main');
             showResults(response.data);*/
             taskLists = [];
@@ -151,7 +151,6 @@
         } else {
             // The response.oauthError and response.oauthErrorText values may help debug
             // problems with your gadget.
-			alert('1c');
             var main = document.getElementById('main');
             var err = document.createTextNode('OAuth error: ' +
               response.oauthError + ': ' + response.oauthErrorText);
