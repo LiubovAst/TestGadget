@@ -77,6 +77,7 @@
 
         taskLists = result.items;
         generateList(taskLists);
+        CollapsibleLists.applyTo(document.getElementById('listId'));
       }
       
     function generateList(taskLists) {
@@ -94,30 +95,7 @@
     	return ulMain;
 	}
 	  
-	 function askForEvents(email) {
-	    var params = {};
-		url = "https://www.google.com/calendar/feeds/default/private/full?start-min=2014-08-12&start-max=2014-08-13&alt=json";
-		params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
-		params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
-		params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
-		params[gadgets.io.RequestParameters.OAUTH_USE_TOKEN] = "always";
-		params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
-		
-		gadgets.io.makeRequest(url, function (response) {   
-		    alert(JSON.stringify(response));
-			if (response.data) {
-				alert(JSON.stringify(response.data));
-
-			} else {
-				// The response.oauthError and response.oauthErrorText values may help debug
-				// problems with your gadget.
-				var err = document.createTextNode('OAuth error: ' +
-				response.oauthError + ': ' + response.oauthErrorText);
-				alert(err);
-			}
-		}, params);
-	 }	 
-      
+	
     // Invoke makeRequest() to fetch data from the service provider endpoint.
     // Depending on the results of makeRequest, decide which version of the UI
     // to ask showOneSection() to display. If user has approved access to his
@@ -160,7 +138,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('12:59');
+            alert('13:09');
             showOneSection('main');
             showResults(response.data);
         } else {
@@ -176,25 +154,7 @@
       }, params);
     }
 	
-	function generateList(data) {
-		var i, item, ref = {}, counts = {};
 
-		ref[0] = document.getElementById('listId');
-		counts[0] = 1;
-		for (i = 0; i < data.length; ++i) {
-			var li = document.createElement('li');
-			li.appendChild(document.createTextNode(data[i]['name']));
-			ref[data[i].parentId].appendChild(li); // create <li>
-			ref[data[i].id] = document.createElement('ul'); // assume + create <ul>
-			li.appendChild(ref[data[i].id]);
-			counts[data[i].id] = 0;
-			counts[data[i].parentId] += 1;
-		}
-		for (i in counts) // for every <ul>
-			if (counts[i] === 0) // if it never had anything appened to it
-				ref[i].parentNode.removeChild(ref[i]); // remove it
-		return ref[0];
-	}
     
     // Call fetchData() when gadget loads.
     gadgets.util.registerOnLoadHandler(fetchData);
