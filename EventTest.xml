@@ -122,6 +122,12 @@
             		} // for j
         	} // if
     	} // for i
+    	
+    	for (i = 0; i < 20; ++i) {
+    	  	var li = document.createElement('li');
+        	li.appendChild(document.createTextNode("Test" + i));
+        	ulMain.appendChild(li); // create <li>
+    	}
 
     	return ulMain;
 	}
@@ -167,7 +173,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('16:17');
+            alert('16:24');
 
             taskLists = [];
             taskLists = response.data.items;
