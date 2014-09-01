@@ -37,7 +37,7 @@
           }
   </style>
   <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/CollapsibleLists.js"></script>
-  <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/Ext/javascript/popup.js"></script>
+  <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/popup.js"></script>
   <script type="text/javascript">
   
     var taskLists = [];
@@ -211,7 +211,7 @@
            taskList.isLoading = false;
            taskList.tasks = response.data.items;
            
-           if (allLoaded()) {
+           if (allTasksLoaded()) {
               generateList(taskLists);
               CollapsibleLists.applyTo(document.getElementById('listId'));
            }
@@ -230,7 +230,7 @@
    
     }
     
-    function allLoaded() {
+    function allTasksLoaded() {
         var i;
         for(var i=0; i< taskLists.length; i++) {
             if (taskLists[i].isLoading) {
