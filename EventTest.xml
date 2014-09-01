@@ -41,6 +41,7 @@
   <script type="text/javascript">
   
     var taskLists = [];
+    var errorOccured = false;
 
   // https://www.google.com/calendar/feeds/
    // Display UI depending on OAuth access state of the gadget (see <divs> above).
@@ -72,12 +73,12 @@
       
     // Process returned JSON feed to display data.
     function showResults(result) {
-        showOneSection('main');
+      /*  showOneSection('main');
         taskLists = [];
 
         taskLists = result.items;
         generateList(taskLists);
-        CollapsibleLists.applyTo(document.getElementById('listId'));
+        CollapsibleLists.applyTo(document.getElementById('listId'));*/
       }
       
     function generateList(taskLists) {
@@ -105,11 +106,9 @@
     // gadget as a link that the user clicks to begin the approval process. 
        
     function fetchData() {
-      alert('3');
-      
+      errorOccured = false;
       var params = {};
-      //url = "https://www.google.com/calendar/feeds/default/owncalendars/full?alt=json";
-	  url = "https://www.googleapis.com/tasks/v1/users/@me/lists?key=AIzaSyD60UyJs1CDmGQvog5uBQX1-kARqhU7fkk";
+      url = "https://www.googleapis.com/tasks/v1/users/@me/lists?key=AIzaSyD60UyJs1CDmGQvog5uBQX1-kARqhU7fkk";
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
       params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
       params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
@@ -139,8 +138,16 @@
           showOneSection('approval');
         } else if (response.data) {
             alert('13:09');
-            showOneSection('main');
-            showResults(response.data);
+          /*  showOneSection('main');
+            showResults(response.data);*/
+            taskLists = [];
+            taskLists = response.data.items;
+            for(var i=0; i< taskLists.length; i++) {
+               alert("Asking tasks for " + taskLists[i].id);
+               taskLists[i].isLoading = true;
+               getTasksForTaskList(taskLists[i]);
+            }
+            
         } else {
             // The response.oauthError and response.oauthErrorText values may help debug
             // problems with your gadget.
@@ -150,8 +157,42 @@
               response.oauthError + ': ' + response.oauthErrorText);
             main.appendChild(err);
             showOneSection('main');
+            errorOccured = true;
         }
       }, params);
+    }
+    
+    function getTasksForTaskList(taskList) {
+        if (errorOccured) {
+           return;
+        }
+    
+        var params = {};
+	url = "https://www.googleapis.com/tasks/v1/lists/" + taskList.id + "/tasks?key=AIzaSyD60UyJs1CDmGQvog5uBQX1-kARqhU7fkk";
+        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
+        params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
+        params[gadgets.io.RequestParameters.OAUTH_USE_TOKEN] = "always";
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+ 
+        gadgets.io.makeRequest(url, function (response) { 
+        if (response.oauthApprovalUrl) {
+          // сюда попадать вообще не должны
+        } else if (response.data) {
+           alert(response.data);
+            
+        } else {
+            // The response.oauthError and response.oauthErrorText values may help debug
+            // problems with your gadget.
+            var main = document.getElementById('main');
+            var err = document.createTextNode('OAuth error: ' +
+              response.oauthError + ': ' + response.oauthErrorText);
+            main.appendChild(err);
+            showOneSection('main');
+            errorOccured = true;
+        }
+      }, params);
+   
     }
 	
 
