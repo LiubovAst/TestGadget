@@ -137,7 +137,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('13:28');
+            alert('13:32');
           /*  showOneSection('main');
             showResults(response.data);*/
             taskLists = [];
@@ -178,7 +178,7 @@
         if (response.oauthApprovalUrl) {
           // сюда попадать вообще не должны
         } else if (response.data) {
-           alert(response.data);
+           alert(JSON.stringify(response.data));
             
         } else {
             // The response.oauthError and response.oauthErrorText values may help debug
