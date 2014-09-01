@@ -21,6 +21,12 @@
 	  padding: 0px;
           font-size: small;
 	}
+	
+	.collapsibleList li{
+    	  list-style-image:none; /*url('../images/button-empty.png');*/
+    	  list-style-type:none;
+          cursor:auto;
+	}
 
         li.collapsibleListOpen{
           list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-minus.png');
@@ -32,12 +38,6 @@
           cursor:pointer;
           }
        
-       .collapsibleList li{
-    	  list-style-image:none; /*url('../images/button-empty.png');*/
-    	  list-style-type:none;
-          cursor:auto;
-	}
-
 	ul {
     		padding: 0; /* Убираем поля */
     		margin-left: 25px; /* Отступ слева */
@@ -180,7 +180,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('18:03');
+            alert('18:06');
 
             taskLists = [];
             taskLists = response.data.items;
