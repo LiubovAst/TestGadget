@@ -37,7 +37,7 @@
           }
   </style>
   <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/CollapsibleLists.js"></script>
-  <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/Ext/popup.js"></script>
+  <script type="text/javascript" src="https://rawgit.com/LiubovAst/TestGadget/master/Ext/javascript/popup.js"></script>
   <script type="text/javascript">
   
     var taskLists = [];
@@ -166,7 +166,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('14:04');
+            alert('14:14');
           /*  showOneSection('main');
             showResults(response.data);*/
             taskLists = [];
