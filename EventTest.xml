@@ -22,6 +22,11 @@
           font-size: small;
 	}
 	
+	#listId {
+  	  margin: 0;
+  	  padding: 0;
+	}
+
 	.collapsibleList li{
     	  list-style-image:none; /*url('../images/button-empty.png');*/
     	  list-style-type:none;
@@ -29,14 +34,20 @@
 	}
 
         li.collapsibleListOpen{
-          list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-minus.png');
-          cursor:pointer;
+           cursor:pointer;
+           background: url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-minus.png') no-repeat top left;
+  	   margin: 0;
+  	   padding: 4px 0 4px 20px;
+  	   list-style: none;
           }
 
         li.collapsibleListClosed{
-          list-style-image:url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-plus.png');
-          cursor:pointer;
-          }
+           cursor:pointer;
+           background: url('https://raw.githubusercontent.com/LiubovAst/TestGadget/master/button-plus.png') no-repeat top left;
+  	   margin: 0;
+  	   padding: 4px 0 4px 20px;
+  	   list-style: none;
+         }
        
 	ul {
     		padding: 0; /* Убираем поля */
@@ -180,7 +191,7 @@
           approvaldone.onclick = popup.createApprovedOnClick();
           showOneSection('approval');
         } else if (response.data) {
-            alert('18:06');
+            alert('11:52');
 
             taskLists = [];
             taskLists = response.data.items;
