@@ -200,6 +200,12 @@ shindig.oauth.popup = function(options) {
     // URL that includes a Google-supplied request token. This is presented in the 
     // gadget as a link that the user clicks to begin the approval process.     
     function fetchData() {
+       var ulMain =  document.getElementById('main');
+       while( ulMain.firstChild ){
+            ulMain.removeChild( ulMain.firstChild );
+        }
+    
+    
       var params = {};
       url = "http://gdata.youtube.com/feeds/api/users/default/uploads?alt=json";
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
