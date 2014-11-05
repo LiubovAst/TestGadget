@@ -24,6 +24,7 @@
   </style>
 
   <div id="main" style="display: none">
+    <input type="button" id="button-refresh" name="button-refresh" value="↺" >
   </div>
 
   <div id="approval" style="display: none">
@@ -242,8 +243,14 @@ shindig.oauth.popup = function(options) {
         }
       }, params);
     }
+    
+    function init() {
+      document.getElementById('button-refresh').addEventListener('click', fetchData);
+      fetchData();
+    }
+    
     // Call fetchData() when gadget loads.
-    gadgets.util.registerOnLoadHandler(fetchData);
+    gadgets.util.registerOnLoadHandler(init);
   </script>
   ]]> 
   </Content>
