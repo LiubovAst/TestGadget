@@ -200,7 +200,8 @@ shindig.oauth.popup = function(options) {
     // URL that includes a Google-supplied request token. This is presented in the 
     // gadget as a link that the user clicks to begin the approval process.     
     function fetchData() {
-       var ulMain =  document.getElementById('main');
+       alert('fetch');
+       var ulMain =   document.getElementById("main");
        while( ulMain.firstChild ){
             ulMain.removeChild( ulMain.firstChild );
         }
