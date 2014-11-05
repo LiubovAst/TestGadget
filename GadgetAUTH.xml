@@ -23,8 +23,8 @@
   }
   </style>
 
+  <input type="button" id="button-refresh" name="button-refresh" value="↺" >  
   <div id="main" style="display: none">
-    <input type="button" id="button-refresh" name="button-refresh" value="↺" >
   </div>
 
   <div id="approval" style="display: none">
@@ -200,7 +200,7 @@ shindig.oauth.popup = function(options) {
     // URL that includes a Google-supplied request token. This is presented in the 
     // gadget as a link that the user clicks to begin the approval process.     
     function fetchData() {
-       alert('fetch');
+       alert('fetch 18-42');
        var ulMain =   document.getElementById("main");
        while( ulMain.firstChild ){
             ulMain.removeChild( ulMain.firstChild );
