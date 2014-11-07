@@ -1,6 +1,7 @@
 <Module>
   <ModulePrefs title="Security Token Callbacks Test" author="fargo@google.com" height="400">
     <Require feature="opensocial-0.8"/>
+    <Require feature="locked-domain"/>
   </ModulePrefs>
   <Content type="html"><![CDATA[
       <script type="text/javascript">
@@ -13,24 +14,24 @@
 
       function overrideRpc() {
         gadgets.rpc.register('update_security_token', function(token) {
-          console.log('gadgets.rpc callback update_security_token called with: ' + token);
-        }
-        console.log('gadgets.rpc update_security_token callback overridden');
+          addTokenLog('gadgets.rpc callback update_security_token called with: ' + token);
+        });
+        addTokenLog('gadgets.rpc update_security_token callback overridden');
       }
 
       function overrideAuthFunction() {
         var oldfn = shindig.auth.updateSecurityToken;
         shindig.auth.updateSecurityToken = function(newtoken) {
-          console.log('shindig.auth.updateSecurityToken( ' + newtoken + ');');
+          addTokenLog('shindig.auth.updateSecurityToken( ' + newtoken + ');');
           oldfn(newtoken);
         }
       }
 
       function updateWithRandom() {
         var newtoken = Math.random() + "-token";
-        console.log('Updating token to: ' + newtoken + '...');
+        addTokenLog('Updating token to: ' + newtoken + '...');
         shindig.auth.updateSecurityToken(newtoken);
-        console.log('...updated, now set to: ' + shindig.auth.getSecurityToken());
+        addTokenLog('...updated, now set to: ' + shindig.auth.getSecurityToken());
       }
       
       function init() {
