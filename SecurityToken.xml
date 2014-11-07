@@ -5,6 +5,10 @@
   </ModulePrefs>
   <Content type="html"><![CDATA[
       <script type="text/javascript">
+      
+      var timerFetchNewData = -1; // таймер для загрузки обновлений с сервера
+      var requestInterval = 5 * 60 * 1000; // интервал запросов обновлений (мс)
+      
       function addTokenLog(text) {
         var entry = document.createElement('div');
         entry.innerHTML = text;
@@ -35,14 +39,20 @@
       }
       
       function init() {
-         alert('init start');
          document.getElementById("onload-security-token").innerHTML = shindig.auth.getSecurityToken();
          
          document.getElementById("button-1").addEventListener('click', overrideRpc);
          document.getElementById("button-2").addEventListener('click', overrideAuthFunction);
          document.getElementById("button-3").addEventListener('click', updateWithRandom);
          
-         alert('init end');
+         GetToken();
+      }
+      
+      
+      function GetToken() {
+         var d = new Date();
+         console.log(d + ' ' + shindig.auth.getSecurityToken());
+         timerFetchNewData = setTimeout(GetToken, requestInterval);
       }
       
        gadgets.util.registerOnLoadHandler(init);
