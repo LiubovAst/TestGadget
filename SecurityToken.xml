@@ -1,5 +1,5 @@
 <Module>
-  <ModulePrefs title="Security Token Callbacks Test" author="fargo@google.com">
+  <ModulePrefs title="Security Token Callbacks Test" author="fargo@google.com" height="400">
     <Require feature="opensocial-0.8"/>
   </ModulePrefs>
   <Content type="html"><![CDATA[
@@ -37,7 +37,7 @@
       }
     </script>
      <input type="button" value="Override update_security_token rpc" onclick="overrideRpc();"/><br/>
-    <input type="button" value="Override shindig.auth.updateSecurityToken()" onclick="updateAuthFunction();"/><br/>
+    <input type="button" value="Override shindig.auth.updateSecurityToken()" onclick="overrideAuthFunction();"/><br/>
     <input type="button" value="Force updating security token to some random value" onclick="updateWithRandom();"/><br/>
     Initial security token is:
     <script>
