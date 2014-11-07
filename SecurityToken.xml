@@ -8,6 +8,7 @@
         var entry = document.createElement('div');
         entry.innerHTML = text;
         document.getElementById('security-token-log').appendChild(entry);
+        console.log("log: " + text);
       }
 
       function overrideRpc() {
@@ -32,13 +33,19 @@
         addTokenLog('...updated, now set to: ' + shindig.auth.getSecurityToken());
       }
       
-       gadgets.util.registerOnLoadHandler(function() {
-        document.getElementById("onload-security-token").innerHTML = shindig.auth.getSecurityToken();
+      function init() {
+         document.getElementById("onload-security-token").innerHTML = shindig.auth.getSecurityToken();
+         
+         document.getElementById("button-1").addEventListener('click', overrideRpc);
+         document.getElementById("button-2").addEventListener('click', overrideAuthFunction);
+         document.getElementById("button-3").addEventListener('click', updateWithRandom);
       }
+      
+       gadgets.util.registerOnLoadHandler(init);
     </script>
-     <input type="button" value="Override update_security_token rpc" onclick="overrideRpc();"/><br/>
-    <input type="button" value="Override shindig.auth.updateSecurityToken()" onclick="overrideAuthFunction();"/><br/>
-    <input type="button" value="Force updating security token to some random value" onclick="updateWithRandom();"/><br/>
+     <input type="button" id="button-1" value="Override update_security_token rpc"/><br/>
+    <input type="button" id="button-2" value="Override shindig.auth.updateSecurityToken()"/><br/>
+    <input type="button" id="button-3" value="Force updating security token to some random value"/><br/>
     Initial security token is:
     <script>
       document.write(shindig.auth.getSecurityToken());
