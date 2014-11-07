@@ -13,24 +13,24 @@
 
       function overrideRpc() {
         gadgets.rpc.register('update_security_token', function(token) {
-          addTokenLog('gadgets.rpc callback update_security_token called with: ' + token);
+          console.log('gadgets.rpc callback update_security_token called with: ' + token);
         }
-        addTokenLog('gadgets.rpc update_security_token callback overridden');
+        console.log('gadgets.rpc update_security_token callback overridden');
       }
 
       function overrideAuthFunction() {
         var oldfn = shindig.auth.updateSecurityToken;
         shindig.auth.updateSecurityToken = function(newtoken) {
-          addTokenLog('shindig.auth.updateSecurityToken( ' + newtoken + ');');
+          console.log('shindig.auth.updateSecurityToken( ' + newtoken + ');');
           oldfn(newtoken);
         }
       }
 
       function updateWithRandom() {
         var newtoken = Math.random() + "-token";
-        addTokenLog('Updating token to: ' + newtoken + '...');
+        console.log('Updating token to: ' + newtoken + '...');
         shindig.auth.updateSecurityToken(newtoken);
-        addTokenLog('...updated, now set to: ' + shindig.auth.getSecurityToken());
+        console.log('...updated, now set to: ' + shindig.auth.getSecurityToken());
       }
       
       function init() {
