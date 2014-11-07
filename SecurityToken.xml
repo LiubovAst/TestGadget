@@ -3,27 +3,7 @@
     <Require feature="opensocial-0.8"/>
   </ModulePrefs>
   <Content type="html"><![CDATA[
-    Security token callbacks test<br/><br/>
-    Initial security token is:
-    <script>
-      document.write(shindig.auth.getSecurityToken());
-    </script>
-    <br/>
-    Is the shindig.auth.updateSecurityToken() method defined:
-    <script>
-      document.write(typeof shindig.auth.updateSecurityToken === "function" ? "YES" : "NO");
-    </script>
-    <br/>
-    On(DOM)load, the security token is: <span id="onload-security-token"></span><br/>
-    <script>
-      gadgets.util.registerOnLoadHandler(function() {
-        document.getElementById("onload-security-token").innerHTML = shindig.auth.getSecurityToken();
-      }
-    </script>
-    Update_security_token log:<br/><hr/>
-      <div id="security-token-log"></div>
-    <hr/>
-    <script>
+      <script type="text/javascript">
       function addTokenLog(text) {
         var entry = document.createElement('div');
         entry.innerHTML = text;
@@ -51,7 +31,26 @@
         shindig.auth.updateSecurityToken(newtoken);
         addTokenLog('...updated, now set to: ' + shindig.auth.getSecurityToken());
       }
+      
+       gadgets.util.registerOnLoadHandler(function() {
+        document.getElementById("onload-security-token").innerHTML = shindig.auth.getSecurityToken();
+      }
     </script>
+    Security token callbacks test<br/><br/>
+    Initial security token is:
+    <script>
+      document.write(shindig.auth.getSecurityToken());
+    </script>
+    <br/>
+    Is the shindig.auth.updateSecurityToken() method defined:
+    <script>
+      document.write(typeof shindig.auth.updateSecurityToken === "function" ? "YES" : "NO");
+    </script>
+    <br/>
+    On(DOM)load, the security token is: <span id="onload-security-token"></span><br/>
+    Update_security_token log:<br/><hr/>
+      <div id="security-token-log"></div>
+    <hr/>
     <input type="button" value="Override update_security_token rpc" onclick="overrideRpc();"/><br/>
     <input type="button" value="Override shindig.auth.updateSecurityToken()" onclick="updateAuthFunction();"/><br/>
     <input type="button" value="Force updating security token to some random value" onclick="updateWithRandom();"/><br/>
