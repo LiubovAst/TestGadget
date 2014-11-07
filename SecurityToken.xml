@@ -36,7 +36,9 @@
         document.getElementById("onload-security-token").innerHTML = shindig.auth.getSecurityToken();
       }
     </script>
-    Security token callbacks test<br/><br/>
+     <input type="button" value="Override update_security_token rpc" onclick="overrideRpc();"/><br/>
+    <input type="button" value="Override shindig.auth.updateSecurityToken()" onclick="updateAuthFunction();"/><br/>
+    <input type="button" value="Force updating security token to some random value" onclick="updateWithRandom();"/><br/>
     Initial security token is:
     <script>
       document.write(shindig.auth.getSecurityToken());
@@ -51,8 +53,6 @@
     Update_security_token log:<br/><hr/>
       <div id="security-token-log"></div>
     <hr/>
-    <input type="button" value="Override update_security_token rpc" onclick="overrideRpc();"/><br/>
-    <input type="button" value="Override shindig.auth.updateSecurityToken()" onclick="updateAuthFunction();"/><br/>
-    <input type="button" value="Force updating security token to some random value" onclick="updateWithRandom();"/><br/>
+   
   ]]></Content>
 </Module>
