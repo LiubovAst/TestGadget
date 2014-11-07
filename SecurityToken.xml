@@ -2,6 +2,7 @@
   <ModulePrefs title="Security Token Callbacks Test" author="fargo@google.com" height="400">
     <Require feature="opensocial-0.8"/>
     <Require feature="locked-domain"/>
+    <Require feature="auth-refresh">
   </ModulePrefs>
   <Content type="html"><![CDATA[
       <script type="text/javascript">
@@ -32,10 +33,17 @@
       }
 
       function updateWithRandom() {
-        var newtoken = Math.random() + "-token";
+        /*var newtoken = Math.random() + "-token";
         addTokenLog('Updating token to: ' + newtoken + '...');
         shindig.auth.updateSecurityToken(newtoken);
-        addTokenLog('...updated, now set to: ' + shindig.auth.getSecurityToken());
+        addTokenLog('...updated, now set to: ' + shindig.auth.getSecurityToken());*/
+        
+         gadgets.rpc.call('', 'update_security_token', some_callback, null);
+      }
+      
+      function some_callback() {
+        alert('some_callback');
+        return false;
       }
       
       function init() {
