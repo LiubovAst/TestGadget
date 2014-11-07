@@ -1,0 +1,59 @@
+<Module>
+  <ModulePrefs title="Security Token Callbacks Test" author="fargo@google.com">
+    <Require feature="opensocial-0.8"/>
+  </ModulePrefs>
+  <Content type="html"><![CDATA[
+    Security token callbacks test<br/><br/>
+    Initial security token is:
+    <script>
+      document.write(shindig.auth.getSecurityToken());
+    </script>
+    <br/>
+    Is the shindig.auth.updateSecurityToken() method defined:
+    <script>
+      document.write(typeof shindig.auth.updateSecurityToken === "function" ? "YES" : "NO");
+    </script>
+    <br/>
+    On(DOM)load, the security token is: <span id="onload-security-token"></span><br/>
+    <script>
+      gadgets.util.registerOnLoadHandler(function() {
+        document.getElementById("onload-security-token").innerHTML = shindig.auth.getSecurityToken();
+      }
+    </script>
+    Update_security_token log:<br/><hr/>
+      <div id="security-token-log"></div>
+    <hr/>
+    <script>
+      function addTokenLog(text) {
+        var entry = document.createElement('div');
+        entry.innerHTML = text;
+        document.getElementById('security-token-log').appendChild(entry);
+      }
+
+      function overrideRpc() {
+        gadgets.rpc.register('update_security_token', function(token) {
+          addTokenLog('gadgets.rpc callback update_security_token called with: ' + token);
+        }
+        addTokenLog('gadgets.rpc update_security_token callback overridden');
+      }
+
+      function overrideAuthFunction() {
+        var oldfn = shindig.auth.updateSecurityToken;
+        shindig.auth.updateSecurityToken = function(newtoken) {
+          addTokenLog('shindig.auth.updateSecurityToken( ' + newtoken + ');');
+          oldfn(newtoken);
+        }
+      }
+
+      function updateWithRandom() {
+        var newtoken = Math.random() + "-token";
+        addTokenLog('Updating token to: ' + newtoken + '...');
+        shindig.auth.updateSecurityToken(newtoken);
+        addTokenLog('...updated, now set to: ' + shindig.auth.getSecurityToken());
+      }
+    </script>
+    <input type="button" value="Override update_security_token rpc" onclick="overrideRpc();"/><br/>
+    <input type="button" value="Override shindig.auth.updateSecurityToken()" onclick="updateAuthFunction();"/><br/>
+    <input type="button" value="Force updating security token to some random value" onclick="updateWithRandom();"/><br/>
+  ]]></Content>
+</Module>
