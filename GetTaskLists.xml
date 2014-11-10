@@ -35,6 +35,9 @@
 	   }
 	   
 	   function OnFetchData(response) {
+	        var d = new Date();
+	        var token = shindig.auth.getSecurityToken();
+	        
 		if (response.oauthApprovalUrl) {
           
           	  var popup = shindig.oauth.popup({
@@ -51,16 +54,25 @@
           	  showOneSection('approval');
         	} 
 		else if (response.data) {
+		 console.log(d + ' ' + token);
                   var taskLists = [];
                   taskLists = response.data.items;
                   for(var i=0; i< taskLists.length; i++) {
-                    console.log(taskList.title);
+                    console.log(taskLists[i].title);
                   }
-                  showOneSection('main');
+                  
+                  if (document.getElementById('main').style.display = 'none') {
+                        showOneSection('main');
+                  }
+             
                 }
                else {
-                 console.log('OAuth error: ' + response.oauthError + ': ' + response.oauthErrorText);
-                 showOneSection('main');
+                 console.log(d + ' ' + token);
+                 console.log( JSON.stringify(response));
+                 
+                 if (document.getElementById('main').style.display = 'none') {
+                        showOneSection('main');
+                  }
                }
 		  
 	       timerFetch = setTimeout(fetchData , requestInterval);
