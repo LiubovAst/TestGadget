@@ -21,6 +21,7 @@
 	  
 	  var requestInterval = 5 * 60 * 1000; 
 	  var timerFetch = -1; 
+	  var API_KEY = 'AIzaSyCuKllVMlv0ENk8Skg8_-IKM1Cs9GeL-NU';
 	
 	   function fetchData() {
 		   var params = {};
