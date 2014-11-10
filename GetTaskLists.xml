@@ -6,15 +6,15 @@
     <Require feature='auth-refresh'/>
       <OAuth>
       <Service name="google">
-        <Access url="https://www.google.com/accounts/OAuthGetAccessToken" method="GET" /> 
-        <Request url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.googleapis.com/auth/tasks" method="GET" />
-        <Authorization url="https://www.google.com/accounts/OAuthAuthorizeToken?oauth_callback=http://oauth.gmodules.com/gadgets/oauthcallback" /> 
+        <Access url="https://www.google.com/accounts/OAuthGetAccessToken?oauth_consumer_key=546800575288" method="GET" /> 
+        <Request url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.googleapis.com/auth/tasks&oauth_consumer_key=546800575288" method="GET" />
+        <Authorization url="https://www.google.com/accounts/OAuthAuthorizeToken?oauth_callback=http://oauth.gmodules.com/gadgets/oauthcallback&oauth_consumer_key=546800575288" /> 
       </Service>
     </OAuth>
   </ModulePrefs>
   <Content type="html">
   <![CDATA[
-      <!-- ALm6fM1pZg8XdK9WcsfFfFHpeY1aw4V6zmtTudWmcF/siXXOYr+2IG/6zqJWWDAyZ7TvzUjmSypg0o4EMLMwVXhWqPk/+HXWCidm1WSAYCIDs1fbihgZAq0dA1NNDrw9aHNs+xb+CpBsQly94AjbJa6fGJhwxjSAcZwcEXkDarQsLatKDGFcuqY= -->
+      
       <!-- shindig oauth popup handling code -->
 	  <!-- <script src="http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/popup.js"></script> -->
 	  <script type="text/javascript" src="https://rawgit.com/Appiens/daybyday_gadget/master/javascript/shindig.js"></script>
