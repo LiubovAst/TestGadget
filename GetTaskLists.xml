@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
   <ModulePrefs title="test_gadget">
-    <Require feature="opensocial-0.8" />
+    <Require feature="opensocial-0.9" />
     <Require feature="locked-domain"/>
     <Require feature='auth-refresh'/>
       <OAuth>
