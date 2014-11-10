@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="test_gadget">
+    <Require feature="opensocial-0.8" />
+    <Require feature="locked-domain"/>
+    <Require feature='auth-refresh'/>
+      <OAuth>
+      <Service name="google">
+        <Access url="https://www.google.com/accounts/OAuthGetAccessToken" method="GET" /> 
+        <Request url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.googleapis.com/auth/tasks" method="GET" />
+        <Authorization url="https://www.google.com/accounts/OAuthAuthorizeToken?oauth_callback=http://oauth.gmodules.com/gadgets/oauthcallback" /> 
+      </Service>
+    </OAuth>
+  </ModulePrefs>
+  <Content type="html">
+  <![CDATA[
+      <!-- shindig oauth popup handling code -->
+	  <!-- <script src="http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/popup.js"></script> -->
+	  <script type="text/javascript" src="https://rawgit.com/Appiens/daybyday_gadget/master/javascript/shindig.js"></script>
+	  <script type="text/javascript">
+	  
+	  var requestInterval = 5 * 60 * 1000; 
+	  var timerFetch = -1; 
+	
+	   function fetchData() {
+		   var params = {};
+		   url = "https://www.googleapis.com/tasks/v1/users/@me/lists?key=" + API_KEY;
+		   params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+		   params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
+		   params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
+		   params[gadgets.io.RequestParameters.OAUTH_USE_TOKEN] = "always";
+		   params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+		   gadgets.io.makeRequest(url, onFetchData, params);
+	   }
+	   
+	   function OnFetchData(response) {
+		if (response.oauthApprovalUrl) {
+          
+          var popup = shindig.oauth.popup({
+            destination: response.oauthApprovalUrl,
+            windowOptions: null,
+            onOpen: function() { showOneSection('waiting'); },
+            onClose: function() { fetchData(); }
+          });
+    
+          var personalize = document.getElementById('personalize');
+          personalize.onclick = popup.createOpenerOnClick();
+          var approvaldone = document.getElementById('approvaldone');
+          approvaldone.onclick = popup.createApprovedOnClick();
+          showOneSection('approval');
+        } 
+		else if (response.data) {
+                 var taskLists = [];
+                 taskLists = response.data.items;
+                 for(var i=0; i< taskLists.length; i++) {
+                    console.log(taskList.title);
+                 }
+            }
+         else {
+                console.log('OAuth error: ' + response.oauthError + ': ' + response.oauthErrorText);
+          }
+		  
+		  timerFetch = setTimeout(fetchData , requestInterval);
+	  }
+	  
+	  function showOneSection(toshow) {
+		var sections = [ 'main', 'approval', 'waiting'];
+
+		for (var i=0; i < sections.length; ++i) {
+			var s = sections[i];
+			var el = document.getElementById(s);
+			if (s === toshow) {
+				el.style.display = "block";
+			} else {
+				el.style.display = "none";
+			}
+		}
+	  }
+	  
+	   gadgets.util.registerOnLoadHandler(fetchData);
+	  </script>	  
+	  
+	  <div id="main" style="display: none;">
+	  </div>
+	  
+	  <div id="approval" style="display: none">
+		<a href="#" id="personalize">Personalize this gadget</a>
+	  </div>
+	  <div id="waiting" style="display: none">
+		Please click
+	  <a href="#" id="approvaldone">I've approved access</a>
+		once you've approved access to your data.
+	  </div>
+    ]]> 
+  </Content>
+</Module>
