@@ -37,31 +37,33 @@
 	   function OnFetchData(response) {
 		if (response.oauthApprovalUrl) {
           
-          var popup = shindig.oauth.popup({
-            destination: response.oauthApprovalUrl,
-            windowOptions: null,
-            onOpen: function() { showOneSection('waiting'); },
-            onClose: function() { fetchData(); }
-          });
+          	  var popup = shindig.oauth.popup({
+            		destination: response.oauthApprovalUrl,
+            		windowOptions: null,
+            		onOpen: function() { showOneSection('waiting'); },
+            		onClose: function() { fetchData(); }
+          	  });
     
-          var personalize = document.getElementById('personalize');
-          personalize.onclick = popup.createOpenerOnClick();
-          var approvaldone = document.getElementById('approvaldone');
-          approvaldone.onclick = popup.createApprovedOnClick();
-          showOneSection('approval');
-        } 
+          	  var personalize = document.getElementById('personalize');
+          	  personalize.onclick = popup.createOpenerOnClick();
+          	  var approvaldone = document.getElementById('approvaldone');
+          	  approvaldone.onclick = popup.createApprovedOnClick();
+          	  showOneSection('approval');
+        	} 
 		else if (response.data) {
-                 var taskLists = [];
-                 taskLists = response.data.items;
-                 for(var i=0; i< taskLists.length; i++) {
+                  var taskLists = [];
+                  taskLists = response.data.items;
+                  for(var i=0; i< taskLists.length; i++) {
                     console.log(taskList.title);
-                 }
-            }
-         else {
-                console.log('OAuth error: ' + response.oauthError + ': ' + response.oauthErrorText);
-          }
+                  }
+                  showOneSection('main');
+                }
+               else {
+                 console.log('OAuth error: ' + response.oauthError + ': ' + response.oauthErrorText);
+                 showOneSection('main');
+               }
 		  
-		  timerFetch = setTimeout(fetchData , requestInterval);
+	       timerFetch = setTimeout(fetchData , requestInterval);
 	  }
 	  
 	  function showOneSection(toshow) {
