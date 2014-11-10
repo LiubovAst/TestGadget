@@ -6,9 +6,9 @@
     <Require feature='auth-refresh'/>
       <OAuth>
       <Service name="google">
-        <Access url="https://www.google.com/accounts/OAuthGetAccessToken?oauth_consumer_key=546800575288" method="GET" /> 
+        <Access url="https://www.google.com/accounts/OAuthGetAccessToken" method="GET" /> 
         <Request url="https://www.google.com/accounts/OAuthGetRequestToken?scope=https://www.googleapis.com/auth/tasks&oauth_consumer_key=546800575288" method="GET" />
-        <Authorization url="https://www.google.com/accounts/OAuthAuthorizeToken?oauth_callback=http://oauth.gmodules.com/gadgets/oauthcallback&oauth_consumer_key=546800575288" /> 
+        <Authorization url="https://www.google.com/accounts/OAuthAuthorizeToken?oauth_callback=http://oauth.gmodules.com/gadgets/oauthcallback" /> 
       </Service>
     </OAuth>
   </ModulePrefs>
