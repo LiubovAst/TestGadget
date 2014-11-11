@@ -20,7 +20,7 @@
 	  <script type="text/javascript" src="https://rawgit.com/Appiens/daybyday_gadget/master/javascript/shindig.js"></script>
 	  <script type="text/javascript">
 	  
-	  var requestInterval = 5 * 60 * 1000; 
+	  var requestInterval = 15 * 60 * 1000; 
 	  var timerFetch = -1; 
 	  var API_KEY = 'AIzaSyCuKllVMlv0ENk8Skg8_-IKM1Cs9GeL-NU';
 	
