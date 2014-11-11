@@ -32,7 +32,7 @@
 		   params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = "google";
 		   params[gadgets.io.RequestParameters.OAUTH_USE_TOKEN] = "always";
 		   params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
-		   console.log("params = " + params);
+		   console.log("params = " + JSON.stringify(params));
 		   gadgets.io.makeRequest(url, OnFetchData, params);
 	   }
 	   
