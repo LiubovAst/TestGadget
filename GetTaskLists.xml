@@ -25,6 +25,7 @@
 	  var API_KEY = 'AIzaSyCuKllVMlv0ENk8Skg8_-IKM1Cs9GeL-NU';
 	
 	   function fetchData() {
+	           ResetShindig();
 		   var params = {};
 		   url = "https://www.googleapis.com/tasks/v1/users/@me/lists?key=" + API_KEY;
 		   params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
